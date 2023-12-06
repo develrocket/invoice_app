@@ -102,3 +102,7 @@ small {
 .card {
     height: 100%;
 }
+
+.layout-page {
+    overflow-x: hidden;
+}

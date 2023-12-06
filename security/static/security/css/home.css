@@ -104,13 +104,6 @@ a .btn-sign :hover {
   top: 0;
 }
 
-.logo-name-wrapper {
-  position: relative;
-  margin-bottom: 2.1rem;
-  display: flex;
-  font-size: 1.2rem;
-}
-
 .logo-name {
   display: flex;
   align-items: center;
