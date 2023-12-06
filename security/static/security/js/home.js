@@ -299,17 +299,17 @@ $(document).ready(function() {
     const keys_item = Object.keys(data_item[0])
     const element = $(selector)
     const input_len = data_header.length
-    let content = '<div class="black-line" style = "width: 100%; height: 7px; background-color: darkslategray;"></div>'
+    let content = ''
     for (let i = 0; i < input_len; i++) {
-      content += '<h4 class="mt-3 mb-2">Header Details</h4>'
-      content += '<table class="table table-bordered" bgcolor="pink">'
+      content += '<p class="text-muted mt-3 mb-2">Header Details</p>'
+      content += '<div class="table table-striped border rounded"><table class="table table-striped">'
       content += "<thead><tr>"
-      content += keys_header.map(key => `<th>${key}</th>`)
+      content += keys_header.map(key => `<th>${key}</th>`).join("")
       content += "</tr></thead><tbody>"
 
       if (single) {
           content += "<tr>"
-          content += keys_header.map((key, index) => `<td>${data_header[i][key]}</td>`)
+          content += keys_header.map((key, index) => `<td>${data_header[i][key]}</td>`).join("")
           content += "</tr>"
         // content += "<tr>"
         // content += keys_header.map((key) => `<td>${data_header[i][key]}</td>`)
@@ -317,22 +317,22 @@ $(document).ready(function() {
       } else {
           for (let j = 0; j < data_header[i][keys_header[0]].length; j++) {
             content += "<tr>"
-            content += keys_header.map((key, index) => `<td>${data_header[i][key][j]}</td>`)
+            content += keys_header.map((key, index) => `<td>${data_header[i][key][j]}</td>`).join("")
             content += "</tr>"
           }
       }
-      content += '</tbody></table>'
+      content += '</tbody></table></div>'
       // Showing item details
-      content += '<h4 class="mt-3 mb-2">Item Details</h4>'
-      content += '<table class="table table-bordered">'
+      content += '<p class="text-muted mt-3 mb-2">Item Details</p>'
+      content += '<div class="table table-striped border rounded"><table class="table table-striped">'
       content += "<thead><tr>"
-      content += keys_item.map(key => `<th>${key}</th>`)
+      content += keys_item.map(key => `<th>${key}</th>`).join("")
       content += "</tr></thead><tbody>"
 
       if (single) {
         for (let j = 0; j < data_item[i]["Buyers Catalog or Stock Keeping #"].length; j++){
           content += "<tr>"
-          content += keys_item.map((key, index) => `<td>${data_item[i][key][j]}</td>`)
+          content += keys_item.map((key, index) => `<td>${data_item[i][key][j]}</td>`).join("")
           content += "</tr>"
         }
           
@@ -342,12 +342,11 @@ $(document).ready(function() {
       } else {
           for (let j = 0; j < data_item[i][keys_item[0]].length; j++) {
             content += "<tr>"
-            content += keys_item.map((key, index) => `<td>${data_item[i][key][j]}</td>`)
+            content += keys_item.map((key, index) => `<td>${data_item[i][key][j]}</td>`).join("")
             content += "</tr>"
           }
       }
-      content += '</tbody></table>'
-      content += '<div class="black-line" style = "width: 100%; height: 7px; background-color: darkslategray"></div>'
+      content += '</tbody></table></div>'
     }
     element.html(content)
     // =======================
@@ -544,7 +543,7 @@ $(document).ready(function() {
         console.log(data1, "_____")
         data1 = JSON.parse(data1)
         data2 = JSON.parse(data2)
-        data3 = JSON.parse(data3)
+        data3 = JSON.parse(data3.replace(/NaN/g, '\"\"'))
         data4 = JSON.parse(data4)
         data5 = JSON.parse(data5)
         originalData = data1
@@ -687,6 +686,7 @@ $(document).ready(function() {
       success: function(response) {
         const [_customername, headerDetails, itemDetails] = JSON.parse(response.res)
         $(".review-stepper .customername").html(_customername);
+        $(".modal-backdrop.fade.show").remove()
         buildTable(headerDetails, itemDetails, "#view_details")
         document.getElementById('loader2').classList.toggle('d-none');
         // buildTable(itemDetails[0], "#item-details")

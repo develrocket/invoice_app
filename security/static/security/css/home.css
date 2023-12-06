@@ -459,21 +459,8 @@ a .history-btn:hover {
 }
 
 .download-text {
-  color: green;
   font-size: 15px;
   font-weight: 700;
-}
-
-#download-output, #sheet-exporter {
-  background-color: rgb(114, 255, 114);
-}
-
-#download-output:hover {
-  background-color: rgb(205, 252, 255);
-}
-
-#sheet-exporter:hover {
-  background-color: rgb(205, 252, 255);
 }
 
 .password-container {

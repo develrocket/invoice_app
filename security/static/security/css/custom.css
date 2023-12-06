@@ -159,6 +159,26 @@ small {
     border-left: 1px solid #dee2e6;
 }
 
+.table-striped>tbody>tr:last-child>td {
+    border-bottom: 0;
+}
+
+.table-striped>tbody>tr:last-child {
+    border-bottom: 0;
+}
+
 .modal {
     --bs-modal-width: 720px;
+}
+
+body {
+    overflow: auto !important;
+}
+
+.min-h-400px {
+    min-height: 400px !important;
+}
+
+.mt-60px {
+    margin-top: 60px !important;
 }
