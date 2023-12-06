@@ -304,8 +304,33 @@
         </div>
       </div>
       <div class="stepper-content fade-in" stepper-label="2" id="additional-uom" style="position: relative;">
-        
-        <div class="w-100 h-100 overflow-y-auto overflow-x-hidden" style="padding: 30px 10px; background: #f9f9f9;">
+        <div class="card">
+          <div class="card-header border-b pb-2">
+            <h5 class="card-title my-0" id="customize_box_title">&nbsp;</h5>
+          </div>
+          <div class="card-body pt-2">
+            <div id="loader1" class="w-100 d-none justify-content-center" style="display: flex;">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only"></span>
+              </div>
+              <h5 class="ms-3 text-primary">Creating View...</h5>
+            </div>
+            <div>
+              <div id="table-header-view">
+              </div>
+              <div class="overflow-auto d-none">
+                <p class="text-muted mt-3 mb-2">Items Details</p>
+                <table id="table-view" class="table table-striped border rounded mb-5">
+                </table>
+                <div class="col-12 d-flex flex-row-reverse">
+                  <button id="openDialogButton" type="button" onclick="processStepper.navigate('2')" class="btn btn-outline-dark waves-effect" data-bs-toggle="modal" data-bs-target="#myModal">Next</button>
+                  <button type="button" onclick="processStepper.navigate('1')" class="btn btn-outline-dark waves-effect">Prev</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% comment %} <div class="w-100 h-100 overflow-y-auto overflow-x-hidden" style="padding: 30px 10px; background: #f9f9f9;">
           <div id="loader1" class="w-100 d-none justify-content-center" style="display: flex;">
             <div class="spinner-border text-primary" role="status">
               <span class="sr-only"></span>
@@ -358,7 +383,7 @@
         <div class="d-flex justify-content-end" style="position: absolute; right: 5px; bottom: 22px;">
           <button type="button" class="btn btn-info py-1" style="padding: 10px 15px; font-size: 15px;" onclick="processStepper.navigate('1')" id="">Prev</button>
           <button type="button" class="btn btn-info py-1" style="padding: 10px 15px; font-size: 15px;" id="openDialogButton" data-bs-toggle="modal" data-bs-target="#myModal">Next</button>
-        </div>
+        </div> {% endcomment %}
       </div>
 
       <div class="stepper-content fade-in" stepper-label="3" style="background: #f9f9f9;">

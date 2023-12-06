@@ -134,3 +134,31 @@ small {
 .stepper .stepper-content-container .stepper-content {
     padding: 0 !important;
 }
+
+.border-b {
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.border-r {
+    border-right: 1px solid #D9D9D9;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.table thead th {
+    border-bottom: 1px !important;
+}
+
+.table th {
+    border-top: 0 !important;
+}
+
+.table-striped>thead>tr>th:not(:first-child), .table-striped>tbody>tr>td:not(:first-child) {
+    border-left: 1px solid #dee2e6;
+}
+
+.modal {
+    --bs-modal-width: 720px;
+}
