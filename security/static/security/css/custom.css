@@ -1,0 +1,104 @@
+.app-brand {
+    padding-top: 30px !important;
+}
+
+a:hover {
+    color: unset !important;
+    text-decoration: unset !important;
+    background-color: unset !important;
+}
+
+.menu-vertical .menu-icon {
+    font-size: 26px;
+    margin-left: 4px;
+    margin-right: 24px;
+}
+
+.menu-link>div {
+    font-size: 17px;
+}
+
+.menu-vertical .menu-inner > .menu-item {
+    margin: 11px 0;
+}
+
+.menu-inner {
+    margin-top: 12px;
+}
+
+@media (min-width: 1200px) {
+    .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas) .layout-menu .menu-vertical, .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas) .layout-menu.menu-vertical {
+        width: 6.5rem;
+    }
+}
+
+#navbar-collapse {
+    justify-content: space-between;
+}
+
+.fs-20px {
+    font-size: 20px !important;
+}
+
+a:focus {
+    background-color: unset !important;
+}
+
+a {
+    background-color: unset !important;
+}
+
+.bg-menu-theme .menu-link:hover, .bg-menu-theme .menu-link:focus, .bg-menu-theme .menu-horizontal-prev:hover, .bg-menu-theme .menu-horizontal-prev:focus, .bg-menu-theme .menu-horizontal-next:hover, .bg-menu-theme .menu-horizontal-next:focus {
+    color: unset !important;
+}
+
+#homecontain {
+    width: 100%;
+}
+
+.card {
+    --bs-card-cap-padding-x: 20px;
+    --bs-card-cap-padding-y: 15px;
+    --bs-card-spacer-y: 15px;
+    --bs-card-spacer-x: 20px;
+}
+
+small {
+    font-size: 12px !important;
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+:root {
+    --colorPrimaryHalf: #B3C4FA;
+}
+
+.fs-40px {
+    font-size: 40px !important;
+}
+
+.text-gray {
+    color: #B3C4FA !important;
+}
+
+.upload_dropZone {
+    padding: 72px 0 !important;
+}
+
+.mt-100px {
+    margin-top: 100px !important;
+}
+
+.mb-60px {
+    margin-bottom: 60px !important;
+}
+
+.step {
+    cursor: pointer !important;
+}
+
+.card {
+    height: 100%;
+}

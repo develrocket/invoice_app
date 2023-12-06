@@ -1,7 +1,152 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-  <div id= "homecontainer"class="container-fluid mt-4">
+<div class="row">
+  <div class="col-md-3 col-12 mb-4">
+    <div class="card step" id="1">
+      <div class="card-header pb-0">
+        <h5 class="card-title mt-0 mb-1">Import Customer Order</h5>
+        <small class="text-muted">Step 1 - Select Customer and Upload Order</small>
+      </div>
+      <div class="card-body pt-2">
+        <div class="progress" style="height: 4px">
+          <div
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-12 mb-4">
+    <div class="card step" id="2">
+      <div class="card-header pb-0">
+        <h5 class="card-title mt-0 mb-1">Customer Order Mapping</h5>
+        <small class="text-muted">Step 2 - Select Matching Customer and Vendor SKU</small>
+      </div>
+      <div class="card-body pt-2">
+        <div class="progress" style="height: 4px">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-12 mb-4">
+    <div class="card step" id="3">
+      <div class="card-header pb-0">
+        <h5 class="card-title mt-0 mb-1">Review Order</h5>
+        <small class="text-muted">Step 3 - Review Order Details</small>
+      </div>
+      <div class="card-body pt-2">
+        <div class="progress" style="height: 4px">
+          <div
+            class="progress-bar bg-warning"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-12 mb-4">
+    <div class="card step" id="4">
+      <div class="card-header pb-0">
+        <h5 class="card-title mt-0 mb-1">Download Order</h5>
+        <small class="text-muted">Step 4 - Download Order</small>
+      </div>
+      <div class="card-body pt-2">
+        <div class="progress" style="height: 4px">
+          <div
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: 25%"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <form id="data-form">
+          {% csrf_token %}
+          <label for="upload_image_background" class="w-100">
+            <fieldset class="upload_dropZone text-center mb-3 p-4 bg-transparent flex justify-center items-center" style="cursor: pointer;">
+        
+              <i class="fas fs-40px fa-upload text-gray"></i>
+              <p class="medium fw-bold mt-2 mb-0 text-gray"> Drop files here or click to upload.</p>
+              <div class="upload_gallery d-flex flex-wrap justify-content-center gap-3 mb-0"></div>
+          
+            </fieldset>
+          </label>
+          <input id="upload_image_background" name="data" data-post-name="image_background" data-post-url="https://someplace.com/image/uploads/backgrounds/" class="position-absolute invisible" multiple type="file" accept=".pdf, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, text/csv" />
+
+          <div class="w-100 my-2">
+            {% comment %} <div class="my-3 d-flex justify-content-center">
+              <button type="button" id="clear-my-files" class="btn btn-info">Clear My Files</button>
+            </div> {% endcomment %}
+            <div class="col-6">
+              <label class="form-label" style="font-size: 18px; font-weight: bold;">Customer Name</label>
+              <style>
+                .custom-dropdown .select2-results {
+                    max-height: 200px; /* Set the desired maximum height */
+                    overflow-y: auto;
+                  }
+              </style>
+              <select class="form-select" id="customername" name="customername">
+                <option value="Buc-ee's">Buc-ee's</option>
+                <option value="Pepco">Pepco</option>
+                <option value = "Poundland">Poundland</option>
+                <option value = "Walgreens">Walgreens</option>
+                <option value = "Dollarama">Dollarama</option>
+                <option value = "Family Dollar">Family Dollar</option>
+                <option value = "Gabe's">Gabe's</option>
+                <option value = "TEDI">TEDI</option>
+                <option value = "Big Lots Stores">Big Lots Stores</option>
+                <option value = "Walmart">Walmart</option>
+                <option value = "TARGET">TARGET</option>
+                <option value = "Ollies">Ollies</option>
+                <option value = "Five Below">Five Below</option>
+                <option value = "CVS">CVS</option>
+                <option value = "Meijers">Meijers</option>
+                <option value = "MICHAELS">MICHAELS</option>
+                <option value = "Fred Meyer">Fred Meyer</option>
+                <option value = "Tar Heel Trading">Tar Heel Trading</option>
+                <!-- <option value = "Hobby Lobby">Hobby Lobby</option> -->
+                <!-- <option value = "Lekia">Lekia</option> -->
+                <!-- <option value = "Giant Tiger">Giant Tiger</option> -->
+                <!-- <option value = "ORBICO">ORBICO</option> -->
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-100px mb-60px col-12 d-flex flex-row-reverse">
+            <button id="first-step-next" type="button" onclick="processStepper.navigate('2')" class="btn btn-outline-dark waves-effect">Next</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  {% comment %} <div id= "homecontainer"class="container-fluid mt-4">
     <div class="stepper" id="stepper" style="margin-top: 40px;">
       <div class="steps-container">
         <div class="steps">
@@ -278,6 +423,6 @@
       .btn-upload {
           display: none;
       }
-  </style>
+  </style> {% endcomment %}
 
 {% endblock %}
