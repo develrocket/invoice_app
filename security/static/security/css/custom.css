@@ -30,6 +30,14 @@ a:hover {
     .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas) .layout-menu .menu-vertical, .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas) .layout-menu.menu-vertical {
         width: 6.5rem;
     }
+
+    .layout-menu-fixed.layout-menu-collapsed .layout-page {
+        padding-left: 6.5rem !important;
+    }
+
+    .layout-navbar-fixed.layout-menu-collapsed:not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas) .layout-content-navbar .layout-navbar, .layout-menu-fixed.layout-navbar-fixed.layout-menu-collapsed .layout-content-navbar .layout-navbar {
+        left: 6.5rem !important;
+    }
 }
 
 #navbar-collapse {
@@ -103,6 +111,26 @@ small {
     height: 100%;
 }
 
-.layout-page {
+/* .layout-page {
     overflow-x: hidden;
+} */
+
+.stepper .steps-container .steps .step {
+    display: block;
+    text-align: left;
+    position: relative;
+    min-width: unset;
+    max-width: unset;
+}
+
+#stepper {
+    height: unset !important;
+}
+
+.step-indicator {
+    display: none !important;
+}
+
+.stepper .stepper-content-container .stepper-content {
+    padding: 0 !important;
 }
