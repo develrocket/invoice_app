@@ -408,12 +408,12 @@ a:focus {
   font-size: 20px;
 }
 /* Home */
-.btn-next {
+/* .btn-next {
   position: absolute;
   bottom: 50px;
   right: 35px;
   padding: 10px 30px;
-}
+} */
 
 fieldset {
   opacity: 0;
@@ -448,11 +448,11 @@ a .history-btn:hover {
   background-color: #e1f8f7 !important;
 }
 
-.prev-button {
+/* .prev-button {
   position: absolute;
     bottom: 65px;
     right: 30px;
-}
+} */
 
 .download-text {
   font-size: 15px;

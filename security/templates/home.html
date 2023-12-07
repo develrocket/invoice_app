@@ -92,7 +92,7 @@
     </div>
     <div class="stepper-content-container">
       <div class="stepper-content fade-in" stepper-label="1">
-        <div class="card">
+        <div class="card h-content">
           <div class="card-body">
             <form class="w-100 h-100" id="data-form">
               {% csrf_token %}
@@ -153,7 +153,7 @@
                 </div>
               </div>
     
-              <div class="mt-100px mb-60px col-12 d-flex flex-row-reverse">
+              <div class="my-20px col-12 d-flex flex-row-reverse">
                 <button id="first-step-next" type="button" onclick="processStepper.navigate('2')" class="btn btn-outline-dark waves-effect btn-next">Next</button>
               </div>
             </form>
@@ -169,7 +169,7 @@
         </div>
         <div id="step_2_content" class="row d-none">
           <div class="col-md-9 col-sm-12">
-            <div class="card">
+            <div class="card h-content">
               <div class="card-header border-b pb-2">
                 <h5 class="card-title my-0" id="customize_box_title">&nbsp;</h5>
               </div>
@@ -195,7 +195,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-12 h-content">
-            <div class="card">
+            <div class="card h-content">
               <div class="card-body p-0">
                 <div class="w-100 d-flex border-b p-4">
                   <div class="w-50px d-flex justify-center items-center">
@@ -242,7 +242,7 @@
           </div>
           <div class="row">
             <div class="col-md-9 col-sm-12">
-              <div class="card">
+              <div class="card h-content">
                 <div class="card-header border-b pb-2">
                   <h5 class="card-title my-0 customername">Customer Order Mapping</h5>
                 </div>
@@ -256,33 +256,8 @@
               </div>
             </div>
             <div class="col-md-3 col-sm-12 h-content">
-              <div class="card">
+              <div class="card h-content">
                 <div class="card-body p-0" id="step_3_customer_info">
-                  <div class="w-100 d-flex p-4">
-                    <div class="w-50px d-flex justify-center pt-3">
-                      <i class="fas fs-20px fa-address-card"></i>
-                    </div>
-                    <div class="flex-1">
-                      <div class="w-100">
-                        <p class="mb-0">
-                          <strong>Customer PO:</strong>
-                          <span class="text-info">XXX</span>
-                        </p>
-                        <p class="mb-0">
-                          PO Date:
-                          <span class="text-info">XXX</span>
-                        </p>
-                        <p class="mb-0">
-                          Ship Date:
-                          <span class="text-info">XXX</span>
-                        </p>
-                        <p class="mb-0">
-                          PO Total:
-                          <span class="text-info">XXX</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -291,20 +266,20 @@
       </div>
 
       <div class="stepper-content fade-in" stepper-label="4">
-        <div class="card">
+        <div id="loader3" class="w-100 d-none justify-content-center" style="display: flex;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only"></span>
+          </div>
+          <h5 class="ms-3 text-primary">Generating...</h5>
+        </div>
+        <div class="card h-content d-none" id="step_4_content">
           <div class="card-body min-h-400px">
-            <div class="d-flex flex-column justify-space-between items-center d-none" id="step_4_content">
+            <div class="d-flex flex-column justify-space-between items-center">
               <img src="static/security/image/success.png" class="mt-60px" width="150" heigh="150">
-              <div class="export_buttons mt-5">
+              <div class="mt-5">
                 <a href="" id="download-output" download class="btn btn-outline-dark waves-effect"><i class="fa fa-download" style="font-size:24px;"></i><span class="download-text">Download</span></a>
                 <button type="submit" class="btn btn-outline-dark waves-effect" id="sheet-exporter" style="text-decoration: none;" ><i class="far fa-file-excel" style="font-size:24px;"></i><span class="download-text">Export to Google Sheet</span></button>
               </div>
-            </div>
-            <div id="loader3" class="w-100 d-none justify-content-center" style="display: flex;">
-              <div class="spinner-border text-primary" role="status">
-                <span class="sr-only"></span>
-              </div>
-              <h5 class="ms-3 text-primary">Generating...</h5>
             </div>
             <div class="d-flex justify-content-end mt-3 prev-button">
               <button type="button" onclick="processStepper.navigate('3')" class="btn btn-outline-dark waves-effect">Prev</button>
