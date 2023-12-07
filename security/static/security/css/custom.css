@@ -208,3 +208,7 @@ body {
         flex: 1;
     }
 }
+
+.bg-primary {
+    background-color: #7367f0 !important;
+}

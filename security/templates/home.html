@@ -13,7 +13,8 @@
             <div class="card-body pt-2">
               <div class="progress" style="height: 4px">
                 <div
-                  class="progress-bar bg-success"
+                  id="step_progress_1"
+                  class="progress-bar bg-success step-progress"
                   role="progressbar"
                   style="width: 25%"
                   aria-valuenow="25"
@@ -33,7 +34,8 @@
             <div class="card-body pt-2">
               <div class="progress" style="height: 4px">
                 <div
-                  class="progress-bar"
+                  id="step_progress_2"
+                  class="progress-bar step-progress"
                   role="progressbar"
                   style="width: 25%"
                   aria-valuenow="25"
@@ -53,7 +55,8 @@
             <div class="card-body pt-2">
               <div class="progress" style="height: 4px">
                 <div
-                  class="progress-bar bg-warning"
+                  id="step_progress_3"
+                  class="progress-bar bg-warning step-progress"
                   role="progressbar"
                   style="width: 25%"
                   aria-valuenow="25"
@@ -73,7 +76,8 @@
             <div class="card-body pt-2">
               <div class="progress" style="height: 4px">
                 <div
-                  class="progress-bar bg-success"
+                  id="step_progress_4"
+                  class="progress-bar bg-success step-progress"
                   role="progressbar"
                   style="width: 25%"
                   aria-valuenow="25"
@@ -213,7 +217,7 @@
       <div class="stepper-content fade-in" stepper-label="4">
         <div class="card">
           <div class="card-body min-h-400px">
-            <div class="d-flex flex-column justify-space-between items-center">
+            <div class="d-flex flex-column justify-space-between items-center d-none" id="step_4_content">
               <img src="static/security/image/success.png" class="mt-60px" width="150" heigh="150">
               <div class="export_buttons mt-5">
                 <a href="" id="download-output" download class="btn btn-outline-dark waves-effect"><i class="fa fa-download" style="font-size:24px;"></i><span class="download-text">Download</span></a>

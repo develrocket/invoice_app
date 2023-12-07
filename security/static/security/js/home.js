@@ -566,6 +566,8 @@ $(document).ready(function() {
         $("#customize_box_title").html(data5)
         displayTable(data1, "#table-view", "#table-header-view", {"sku_options": data2.OMS_Inventory_List, "uom_options": uoms, "location_options": locations}, data2.OMS_Payment_term, data3, data4, data5)
         document.getElementById('loader1').classList.toggle('d-none');
+        $(".step-progress").css('width', '25%');
+        $("#step_progress_1").css('width', '100%');
       },
       error: function(xhr, status, error) {
           $('#message').text('Error uploading files: ' + error);
@@ -691,6 +693,9 @@ $(document).ready(function() {
         document.getElementById('loader2').classList.toggle('d-none');
         // buildTable(itemDetails[0], "#item-details")
         // buildTable(headerDetails[0], "#header-details", true)
+        $(".step-progress").css('width', '25%');
+        $("#step_progress_1").css('width', '100%');
+        $("#step_progress_2").css('width', '100%');
       },
       error: function(xhr, status, error) {
       }
@@ -699,7 +704,7 @@ $(document).ready(function() {
 
   $('#final-step').click(function() {
     const formData = buildFinalForm()
-    document.getElementById('csv-container').classList.toggle('d-none');
+    // document.getElementById('csv-container').classList.toggle('d-none');
     document.getElementById('loader3').classList.toggle('d-none');
     $.ajax({
       url: '/',
@@ -709,14 +714,19 @@ $(document).ready(function() {
       contentType: false,
       success: function(response) {
         $("#download-output").attr('href', `/download-file/${response.id}`)
-        document.getElementById('csv-container').classList.toggle('d-none');
-        document.getElementById('csv-container').innerHTML = `<h5 class="text-success">Click Download button to download your result</h5>`;
+        // document.getElementById('csv-container').classList.toggle('d-none');
+        // document.getElementById('csv-container').innerHTML = `<h5 class="text-success">Click Download button to download your result</h5>`;
         document.getElementById('loader3').classList.toggle('d-none');
+        document.getElementById('step_4_content').classList.toggle('d-none');
+        $(".step-progress").css('width', '25%');
+        $("#step_progress_1").css('width', '100%');
+        $("#step_progress_2").css('width', '100%');
+        $("#step_progress_3").css('width', '100%');
       },
       error: function(xhr, status, error) {
         if (xhr.status === 400) {
-          document.getElementById('csv-container').classList.toggle('d-none');
-          document.getElementById('csv-container').innerHTML = `<h5 class="text-danger">Database is not enough</h5>`
+          // document.getElementById('csv-container').classList.toggle('d-none');
+          // document.getElementById('csv-container').innerHTML = `<h5 class="text-danger">Database is not enough</h5>`
           document.getElementById('loader3').classList.toggle('d-none');
         }
       }
