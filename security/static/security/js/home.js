@@ -299,32 +299,90 @@ $(document).ready(function() {
     const keys_item = Object.keys(data_item[0])
     const element = $(selector)
     const input_len = data_header.length
+    if (single) {
+      $("#step_3_customer_info").html(`
+      <div class="w-100 d-flex p-4 customer-item">
+        <div class="w-50px d-flex justify-center pt-3">
+          <i class="fas fs-20px fa-address-card"></i>
+        </div>
+        <div class="flex-1">
+          <div class="w-100">
+          <p class="mb-0">
+            <strong>Customer PO:</strong>
+            <span class="text-info">${data_header[0]["PO#"][0]}</span>
+          </p>
+          <p class="mb-0">
+            PO Date:
+            <span class="text-info">${data_header[0]["PO Date"][0]}</span>
+          </p>
+          <p class="mb-0">
+            Ship Date:
+            <span class="text-info">${data_header[0]["Ship Date"][0]}</span>
+          </p>
+          <p class="mb-0">
+            PO Total:
+            <span class="text-info">${Number(data_header[0]["PO Total"][0]).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
+          </p>
+          </div>
+        </div>
+      </div>
+      `);
+    } else {
+      let tmpHtml = '';
+      for (let j = 0; j < data_header[0][keys_header[0]].length; j++) {
+        tmpHtml += `<div class="w-100 d-flex p-4 customer-item">
+          <div class="w-50px d-flex justify-center pt-3">
+            <i class="fas fs-20px fa-address-card"></i>
+          </div>
+          <div class="flex-1">
+            <div class="w-100">
+            <p class="mb-0">
+              <strong>Customer PO:</strong>
+              <span class="text-info">${data_header[0][keys_header[0]][j]}</span>
+            </p>
+            <p class="mb-0">
+              PO Date:
+              <span class="text-info">${data_header[0][keys_header[1]][j]}</span>
+            </p>
+            <p class="mb-0">
+              Ship Date:
+              <span class="text-info">${data_header[0][keys_header[3]][j]}</span>
+            </p>
+            <p class="mb-0">
+              PO Total:
+              <span class="text-info">${Number(data_header[0][keys_header[6]][j]).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
+            </p>
+            </div>
+          </div>
+        </div>`
+      }
+    }
     let content = ''
     for (let i = 0; i < input_len; i++) {
-      content += '<p class="text-muted mt-3 mb-2">Header Details</p>'
-      content += '<div class="table table-striped border rounded"><table class="table table-striped">'
-      content += "<thead><tr>"
-      content += keys_header.map(key => `<th>${key}</th>`).join("")
-      content += "</tr></thead><tbody>"
+      // content += '<p class="text-muted mt-3 mb-2">Header Details</p>'
+      // content += '<div class="table table-striped border rounded"><table class="table table-striped">'
+      // content += "<thead><tr>"
+      // content += keys_header.map(key => `<th>${key}</th>`).join("")
+      // content += "</tr></thead><tbody>"
 
-      if (single) {
-          content += "<tr>"
-          content += keys_header.map((key, index) => `<td>${data_header[i][key]}</td>`).join("")
-          content += "</tr>"
-        // content += "<tr>"
-        // content += keys_header.map((key) => `<td>${data_header[i][key]}</td>`)
-        // content += "</tr>"
-      } else {
-          for (let j = 0; j < data_header[i][keys_header[0]].length; j++) {
-            content += "<tr>"
-            content += keys_header.map((key, index) => `<td>${data_header[i][key][j]}</td>`).join("")
-            content += "</tr>"
-          }
-      }
-      content += '</tbody></table></div>'
+      // if (single) {
+      //     content += "<tr>"
+      //     content += keys_header.map((key, index) => `<td>${data_header[i][key]}</td>`).join("")
+      //     content += "</tr>"
+      //   // content += "<tr>"
+      //   // content += keys_header.map((key) => `<td>${data_header[i][key]}</td>`)
+      //   // content += "</tr>"
+      // } else {
+      //     for (let j = 0; j < data_header[i][keys_header[0]].length; j++) {
+      //       content += "<tr>"
+      //       content += keys_header.map((key, index) => `<td>${data_header[i][key][j]}</td>`).join("")
+      //       content += "</tr>"
+      //     }
+      // }
+      // content += '</tbody></table></div>'
       // Showing item details
       content += '<p class="text-muted mt-3 mb-2">Item Details</p>'
-      content += '<div class="table table-striped border rounded"><table class="table table-striped">'
+      content += '<div class="table table-striped border rounded overflow-x-auto"><table class="table table-striped">'
       content += "<thead><tr>"
       content += keys_item.map(key => `<th>${key}</th>`).join("")
       content += "</tr></thead><tbody>"

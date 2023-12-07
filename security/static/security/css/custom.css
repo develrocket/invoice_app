@@ -228,3 +228,11 @@ body {
 .justify-center {
     justify-content: center !important;
 }
+
+.overflow-x-auto {
+    overflow-x: auto !important;
+}
+
+#step_3_customer_info>.customer-item:not(:first-child) {
+    border-top: 1px solid #D9D9D9 !important;
+}

@@ -207,7 +207,7 @@
                         <strong>Customer Name:</strong>
                         <span id="customer_name" class="text-info"></span>
                       </p>
-                      <p class="mb-0" id="customer_desc">Customer Name From P0</p>
+                      <p class="mb-0" id="customer_desc">Customer Name From PO</p>
                     </div>
                   </div>
                 </div>
@@ -219,7 +219,7 @@
                     <div class="w-100">
                       <p class="mb-0">
                         <strong>Terms:</strong>
-                        <span id="customer_term" class="text-info">xxx</span>
+                        <span id="customer_term" class="text-info"></span>
                       </p>
                       <p class="mb-0" id="customer_term_desc">Terms From PO</p>
                     </div>
@@ -240,15 +240,50 @@
             </div>
             <h5 class="ms-3 text-primary">Loading...</h5>
           </div>
-          <div class="card">
-            <div class="card-header border-b pb-2">
-              <h5 class="card-title my-0 customername">Customer Order Mapping</h5>
+          <div class="row">
+            <div class="col-md-9 col-sm-12">
+              <div class="card">
+                <div class="card-header border-b pb-2">
+                  <h5 class="card-title my-0 customername">Customer Order Mapping</h5>
+                </div>
+                <div class="card-body pt-2">
+                  <div id="view_details"></div>
+                  <div class="col-12 d-flex flex-row-reverse mt-2">
+                    <button id="final-step" type="button" onclick="processStepper.navigate('4')" class="btn btn-outline-dark waves-effect">Next</button>
+                    <button type="button" onclick="processStepper.navigate('2')" class="btn btn-outline-dark waves-effect">Prev</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card-body pt-2">
-              <div id="view_details"></div>
-              <div class="col-12 d-flex flex-row-reverse mt-2">
-                <button id="final-step" type="button" onclick="processStepper.navigate('4')" class="btn btn-outline-dark waves-effect">Next</button>
-                <button type="button" onclick="processStepper.navigate('2')" class="btn btn-outline-dark waves-effect">Prev</button>
+            <div class="col-md-3 col-sm-12 h-content">
+              <div class="card">
+                <div class="card-body p-0" id="step_3_customer_info">
+                  <div class="w-100 d-flex p-4">
+                    <div class="w-50px d-flex justify-center pt-3">
+                      <i class="fas fs-20px fa-address-card"></i>
+                    </div>
+                    <div class="flex-1">
+                      <div class="w-100">
+                        <p class="mb-0">
+                          <strong>Customer PO:</strong>
+                          <span class="text-info">XXX</span>
+                        </p>
+                        <p class="mb-0">
+                          PO Date:
+                          <span class="text-info">XXX</span>
+                        </p>
+                        <p class="mb-0">
+                          Ship Date:
+                          <span class="text-info">XXX</span>
+                        </p>
+                        <p class="mb-0">
+                          PO Total:
+                          <span class="text-info">XXX</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
