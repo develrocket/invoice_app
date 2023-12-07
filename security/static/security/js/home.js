@@ -356,8 +356,31 @@ $(document).ready(function() {
           </div>
         </div>`
       }
+      $("#step_3_customer_info").html(tmpHtml);
     }
-    let content = ''
+    let content = `
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="w-100 border rounded h-50px d-flex items-center pl-3">
+            <p class="mb-0"><strong>Customer PO: </strong><span class="text-info">${data_header[0][keys_header[0]][0]}</span></p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="w-100 border rounded h-50px d-flex items-center pl-3">
+            <p class="mb-0"><strong>Dept: </strong><span class="text-info">${data_header[0][keys_header[2]][0]}</span></p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="w-100 border rounded h-50px d-flex items-center pl-3">
+            <p class="mb-0"><strong>Cancel Date: </strong><span class="text-info">${data_header[0][keys_header[4]][0]}</span></p>
+          </div>
+        </div>
+      </div>
+    `
+    content += '<div class="table overflow-x-auto mt-3"><table class="table table-separate-tr">'
+    content += "<thead><tr class='bg-light-gray'>"
+    content += keys_item.map(key => `<th>${key}</th>`).join("")
+    content += "</tr></thead><tbody>"
     for (let i = 0; i < input_len; i++) {
       // content += '<p class="text-muted mt-3 mb-2">Header Details</p>'
       // content += '<div class="table table-striped border rounded"><table class="table table-striped">'
@@ -381,11 +404,11 @@ $(document).ready(function() {
       // }
       // content += '</tbody></table></div>'
       // Showing item details
-      content += '<p class="text-muted mt-3 mb-2">Item Details</p>'
-      content += '<div class="table table-striped border rounded overflow-x-auto"><table class="table table-striped">'
-      content += "<thead><tr>"
-      content += keys_item.map(key => `<th>${key}</th>`).join("")
-      content += "</tr></thead><tbody>"
+      // content += '<p class="text-muted mt-3 mb-2">Item Details</p>'
+      // content += '<div class="table table-striped border rounded overflow-x-auto"><table class="table table-striped">'
+      // content += "<thead><tr>"
+      // content += keys_item.map(key => `<th>${key}</th>`).join("")
+      // content += "</tr></thead><tbody>"
 
       if (single) {
         for (let j = 0; j < data_item[i]["Buyers Catalog or Stock Keeping #"].length; j++){
@@ -404,7 +427,7 @@ $(document).ready(function() {
             content += "</tr>"
           }
       }
-      content += '</tbody></table></div>'
+      // content += '</tbody></table></div>'
     }
     element.html(content)
     // =======================
@@ -646,9 +669,9 @@ $(document).ready(function() {
     var table = '<table>'
     var newtable = '<table>'
    
-    table += `<thead><tr><th>${keyname}</th><th>Unit of Measure</th><th>StockLocation</th><th>Vendor Style from OMS_equal</th></tr></thead>`;
+    table += `<thead><tr class="bg-light-gray"><th>${keyname}</th><th>Unit of Measure</th><th>StockLocation</th><th>Vendor Style from OMS_equal</th></tr></thead>`;
     table += '<tbody>';
-    newtable += `<thead><tr><th>${keyname}</th><th>Unit of Measure</th><th>StockLocation</th><th>Vendor Style from OMS_equal</th><th></th><th></th></tr></thead>`;
+    newtable += `<thead><tr class="bg-light-gray"><th>${keyname}</th><th>Unit of Measure</th><th>StockLocation</th><th>Vendor Style from OMS_equal</th></tr></thead>`;
     newtable += '<tbody>';
     
     hasValue.forEach(function(v, index) {

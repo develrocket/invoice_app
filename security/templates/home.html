@@ -247,7 +247,8 @@
                   <h5 class="card-title my-0 customername">Customer Order Mapping</h5>
                 </div>
                 <div class="card-body pt-2">
-                  <div id="view_details"></div>
+                  <div id="view_details">
+                  </div>
                   <div class="col-12 d-flex flex-row-reverse mt-2">
                     <button id="final-step" type="button" onclick="processStepper.navigate('4')" class="btn btn-outline-dark waves-effect">Next</button>
                     <button type="button" onclick="processStepper.navigate('2')" class="btn btn-outline-dark waves-effect">Prev</button>
@@ -301,14 +302,14 @@
                 </button>
             </div>
             <div class="modal-body">
-              <table id="modaltable" class="table table-bordered"></table>
-                <p>These are first productions for our site and for this customer.
-                  Do you want to use them to auto-fill for further times?</p>
-                <table id="newmodaltable" class="table table-bordered"></table>
+              <table id="modaltable" class="table"></table>
+              <p class="mt-3">These are first productions for our site and for this customer.
+                Do you want to use them to auto-fill for further times?</p>
+              <table id="newmodaltable" class="table"></table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="NextButton">Next</button>
+                <button type="button" class="btn btn-outline-dark waves-effect" id="NextButton">Next</button>
             </div>
 
         </div>
@@ -330,7 +331,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="liveIgnore">Ignore</button>
-                <button type="button" class="btn btn-primary" id="liveAccept">Accept</button>
+                <button type="button" class="btn btn-outline-dark waves-effect" id="liveAccept">Accept</button>
             </div>
 
         </div>

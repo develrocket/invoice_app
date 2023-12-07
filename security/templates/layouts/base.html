@@ -44,14 +44,14 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="javascript:void(0)" class="app-brand-link logo-name-wrapper">
+            <a href="{% url 'security:home' %}" class="app-brand-link logo-name-wrapper m-0">
               <span class="app-brand-logo demo">
                 <img src="{% static 'security/image/logo.png' %}" width="46" heigh="46">
               </span>
-              <span class="app-brand-text demo menu-text fw-bold">Dashboard</span>
+              {% comment %} <span class="app-brand-text demo menu-text fw-bold">Dashboard</span> {% endcomment %}
             </a>
 
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-none">
               <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
               <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
             </a>
@@ -98,9 +98,9 @@
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center fs-20px">
+              <a href="{% url 'security:home' %}" class="navbar-nav align-items-center fs-20px">
                 Dashboard
-              </div>
+              </a>
               <!-- /Search -->
 
               <a class="navbar-brand" href="{% url 'security:history' %}" style="display: flex; align-items: center;"><span class="history-text"> History</span></a>
