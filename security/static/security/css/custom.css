@@ -190,3 +190,21 @@ body {
 .min-w-160px {
     min-width: 160px !important;
 }
+
+.items-end {
+    align-items: end !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.gap-1 {
+    gap: 0.25rem !important;
+}
+
+@media (min-width: 768px) {
+    .md-flex-1 {
+        flex: 1;
+    }
+}
