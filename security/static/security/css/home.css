@@ -352,10 +352,6 @@ body{font-size:14px;}
 #customer-name-form{
   width: fit-content;
 }
-#customselect{
-  
-  width: 80%;
-}
 li{
   list-style-type: none;
 }

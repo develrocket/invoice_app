@@ -182,3 +182,11 @@ body {
 .mt-60px {
     margin-top: 60px !important;
 }
+
+.bg-light-gray {
+    background-color: #FBFBFC !important;
+}
+
+.min-w-160px {
+    min-width: 160px !important;
+}
