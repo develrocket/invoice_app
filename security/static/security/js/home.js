@@ -387,38 +387,41 @@ $(document).ready(function() {
     //     }
     //   }  
     // }
-    var head1 = `<p class="text-muted mt-3 mb-2">Header Details</p>
-                <div class="table table-striped border rounded">
-                  <div class="row mx-0">
-                    <div class="col-lg-6 border-b border-r d-flex items-center">
-                      <div class="fw-bold">Customer Name From P0: <span class="text-danger">${customername}</span></div>
-                    </div>
-                    <div class="col-lg-6 border-b d-flex items-center">
-                      <div class="row fw-bold w-100">
-                        <div class="col-lg-4 text-start">
-                          Customer Name Options: 
-                        </div>
-                        <div class="col-lg-8">
-                          ${customernameoptions}
-                        </div>                      
-                      </div>                    
-                    </div>
-                    <div class="col-lg-6 border-r d-flex items-center">
-                      <div class="fw-bold">Terms From PO: <span class="text-danger">${termsfrompo}</span></div>                    
-                    </div>
-                    <div class="col-lg-6 d-flex items-center">
-                      <div class="row fw-bold w-100">
-                        <div class="col-lg-4 text-start">
-                          Terms Options From OMS: 
-                        </div>
-                        <div class="col-lg-8">
-                          ${termsOptionsFromOMS(termRsOptions)}
-                        </div>                      
-                      </div>
-                    </div>
-                  </div>
-                </div>`;
-    $(selector1).html(head1)
+    $("#customer_name").html(customername);
+    $("#customer_term").html(termsfrompo);
+    $("#customer_term_select").html(termsOptionsFromOMS(termRsOptions));
+    
+    // var head1 = `<div class="table table-striped border rounded">
+    //               <div class="row mx-0">
+    //                 <div class="col-lg-6 border-b border-r d-flex items-center">
+    //                   <div class="fw-bold">Customer Name From P0: <span class="text-danger">${customername}</span></div>
+    //                 </div>
+    //                 <div class="col-lg-6 border-b d-flex items-center">
+    //                   <div class="row fw-bold w-100">
+    //                     <div class="col-lg-4 text-start">
+    //                       Customer Name Options: 
+    //                     </div>
+    //                     <div class="col-lg-8">
+    //                       ${customernameoptions}
+    //                     </div>                      
+    //                   </div>                    
+    //                 </div>
+    //                 <div class="col-lg-6 border-r d-flex items-center">
+    //                   <div class="fw-bold">Terms From PO: <span class="text-danger">${termsfrompo}</span></div>                    
+    //                 </div>
+    //                 <div class="col-lg-6 d-flex items-center">
+    //                   <div class="row fw-bold w-100">
+    //                     <div class="col-lg-4 text-start">
+    //                       Terms Options From OMS: 
+    //                     </div>
+    //                     <div class="col-lg-8">
+    //                       ${termsOptionsFromOMS(termRsOptions)}
+    //                     </div>                      
+    //                   </div>
+    //                 </div>
+    //               </div>
+    //             </div>`;
+    // $(selector1).html(head1)
     console.log(data, "_____")
     const table_len = data.length
     const sku_keyname = customerStyle(customername)
@@ -564,6 +567,7 @@ $(document).ready(function() {
           
         }
         $("#customize_box_title").html(data5)
+        document.getElementById('step_2_content').classList.toggle('d-none');
         displayTable(data1, "#table-view", "#table-header-view", {"sku_options": data2.OMS_Inventory_List, "uom_options": uoms, "location_options": locations}, data2.OMS_Payment_term, data3, data4, data5)
         document.getElementById('loader1').classList.toggle('d-none');
         $(".step-progress").css('width', '25%');

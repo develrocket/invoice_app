@@ -212,3 +212,19 @@ body {
 .bg-primary {
     background-color: #7367f0 !important;
 }
+
+.w-50px {
+    width: 50px !important;
+}
+
+.h-content {
+    height: max-content !important;
+}
+
+.text-info {
+    color: #00cfe8 !important;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
