@@ -62,19 +62,19 @@
           <ul class="menu-inner py-1">
             <li class="menu-item">
               <a href="{% url 'security:home' %}" class="menu-link">
-                <i class="menu-icon fa-icons fa fas fa-gauge"></i>
+                <i class="menu-icon fa-icons fa fas fa-gauge text-light-blue"></i>
                 <div data-i18n="Email">Home</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="{% url 'security:POconversion' %}" class="menu-link">
-                <i class="menu-icon fa-icons fas fa-briefcase"></i>
+                <i class="menu-icon fa-icons fas fa-briefcase text-light-blue"></i>
                 <div data-i18n="Chat">POconversion</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="{% url 'securityauth:signin' %}" class="menu-link">
-                <i class="menu-icon fas fa-right-from-bracket"></i>
+                <i class="menu-icon fas fa-right-from-bracket text-light-blue"></i>
                 <div data-i18n="Chat">Log out</div>
               </a>
             </li>
@@ -173,7 +173,16 @@
             }
           };
         }
-      </script>
+    </script>
+    <script>
+      $(document).ready(function() {
+        $("#layout-menu ul a.menu-link").each((index, ele) => {
+          if(ele.href == window.location.href) {
+            $(ele).addClass('active');
+          }
+        })
+      });
+    </script>
     {% block scripts %}
     {% endblock scripts %}
   </body>
