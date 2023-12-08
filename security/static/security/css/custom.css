@@ -286,7 +286,7 @@ body {
 }
 
 .table-separate-tr>tbody>tr>td, .table-separate-tr>thead>tr>th {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .text-light-blue {
@@ -385,4 +385,16 @@ body {
 .px-20px {
     padding-left: 20px !important;
     padding-right: 20px !important;
+}
+
+.modal-open .modal {
+    overflow-y: hidden;
+}
+
+.modal-open {
+    padding-right: 0 !important;
+}
+
+body {
+    padding: 0 !important;
 }

@@ -385,7 +385,8 @@ $(document).ready(function() {
     `
     content += '<div class="table overflow-x-auto mt-3"><table class="table table-separate-tr">'
     content += "<thead><tr class='bg-light-gray'>"
-    content += keys_item.map(key => `<th>${key}</th>`).join("")
+    const thLabels = ["Customer SKU", "UPC", "Creative Kids SKU", "Retail Price", "PO UOM", "Unit Price", "Quantity Ordered", "Total Case Pack Qty", "Pack Size", "Units Per Case Pack", "Units Per Inner Pack", "Inner Pack Quantity", "Price Total Amount"]
+    content += keys_item.map((key, id) => `<th>${thLabels[id]}</th>`).join("")
     content += "</tr></thead><tbody>"
     for (let i = 0; i < input_len; i++) {
       // content += '<p class="text-muted mt-3 mb-2">Header Details</p>'
