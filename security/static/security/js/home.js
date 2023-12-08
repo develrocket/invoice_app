@@ -19,6 +19,12 @@
     event.stopPropagation();
   };
 
+  $("#upload_image_background").change((e) => {
+    if (e.target.value) {
+      $("#step_progress_1").css('width', '75%');
+    }
+  })
+
   const highlight = event =>
     event.target.classList.add('highlight');
   
@@ -469,7 +475,7 @@ $(document).ready(function() {
     //   }  
     // }
     $("#customer_name").html(customername);
-    $("#customer_term").html(termsfrompo);
+    $("#customer_term").html(termsfrompo + " Days");
     $("#customer_term_select").html(termsOptionsFromOMS(termRsOptions));
     
     // var head1 = `<div class="table table-striped border rounded">
@@ -541,7 +547,7 @@ $(document).ready(function() {
                       var determinevalue = data3[data[i][sku_keyname][index]]
                     }
                     const hasValue = options["sku_options"][i][index - 1].findIndex(v => v==selectedValue) !== -1
-                    return `<td contenteditable="true"><select class="form-select" ${hasValue?"disabled":""} data-hasvalue="${hasValue}"><option value="" disabled selected>Select Vendor Style</option>${options["sku_options"][i][index - 1].map(option => `<option value="${option}" ${option==selectedValue?"selected":""}>${option}</option>`)}</select></td>`;
+                    return `<td contenteditable="true"><select class="form-select step-2-vendor-style" ${hasValue?"disabled":""} data-hasvalue="${hasValue}"><option value="" disabled selected>Select Vendor Style</option>${options["sku_options"][i][index - 1].map(option => `<option value="${option}" ${option==selectedValue?"selected":""}>${option}</option>`)}</select></td>`;
                   }
                   else if (key === "Unit of Measure") {
                     try {
@@ -614,6 +620,8 @@ $(document).ready(function() {
     // const [customInputs] = getTableData("#table-view")
   })
   $("#first-step-next").click(function() {
+    $(".step-progress").css('width', '25%');
+    $("#step_progress_1").css('width', '100%');
     var formData = new FormData($('#data-form')[0]);
     document.getElementById('loader1').classList.toggle('d-none');
     $.ajax({
@@ -651,14 +659,36 @@ $(document).ready(function() {
         document.getElementById('step_2_content').classList.toggle('d-none');
         displayTable(data1, "#table-view", "#table-header-view", {"sku_options": data2.OMS_Inventory_List, "uom_options": uoms, "location_options": locations}, data2.OMS_Payment_term, data3, data4, data5)
         document.getElementById('loader1').classList.toggle('d-none');
-        $(".step-progress").css('width', '25%');
-        $("#step_progress_1").css('width', '100%');
+        let isCompleted = true
+        $(".step-2-vendor-style").each((id, ele) => {
+          if(!ele.value) {
+            isCompleted = false;
+            return;
+          }
+        });
+        if (isCompleted) {
+          $("#step_progress_2").css('width', '75%');
+        } else {
+          $("#step_progress_2").css('width', '50%');
+        }
       },
       error: function(xhr, status, error) {
           $('#message').text('Error uploading files: ' + error);
       }
     });
   })
+  $(".step-2-vendor-style").change(() => {
+    let isCompleted = true
+    $(".step-2-vendor-style").each((id, ele) => {
+      if(!ele.value) {
+        isCompleted = false;
+        return;
+      }
+    });
+    if (isCompleted) {
+      $("#step_progress_2").css('width', '75%');
+    }
+  });
   $("#openDialogButton").click(function() {
     
     data=savedata
@@ -772,7 +802,7 @@ $(document).ready(function() {
       contentType: false,
       success: function(response) {
         const [_customername, headerDetails, itemDetails] = JSON.parse(response.res)
-        $(".review-stepper .customername").html(_customername);
+        // $(".review-stepper .customername").html(_customername);
         $(".modal-backdrop.fade.show").remove()
         buildTable(headerDetails, itemDetails, "#view_details")
         document.getElementById('loader2').classList.toggle('d-none');
@@ -781,6 +811,7 @@ $(document).ready(function() {
         $(".step-progress").css('width', '25%');
         $("#step_progress_1").css('width', '100%');
         $("#step_progress_2").css('width', '100%');
+        $("#step_progress_3").css('width', '75%');
       },
       error: function(xhr, status, error) {
       }
@@ -807,6 +838,7 @@ $(document).ready(function() {
         $("#step_progress_1").css('width', '100%');
         $("#step_progress_2").css('width', '100%');
         $("#step_progress_3").css('width', '100%');
+        $("#step_progress_4").css('width', '75%');
       },
       error: function(xhr, status, error) {
         if (xhr.status === 400) {

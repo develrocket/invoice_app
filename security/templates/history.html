@@ -6,8 +6,8 @@
     <div class="card">
       <div class="card-body">
         <div class="w-100">
-          <div class="row">
-            <div class="col-2">
+          <div class="w-100 d-flex">
+            <div class="w-10-pro px-20px">
               <input type="checkbox" class="d-none" id="check-customer" name="check-customer" value="customer">
               <label for="selectOption" class="form-label">Customer Name</label>
               <select id="selectOption-customer" class="form-select">
@@ -32,7 +32,7 @@
                 <option value = "Tar Heel Trading">Tar Heel Trading</option>
               </select>
             </div>
-            <div class="col-2">
+            <div class="w-10-pro px-20px">
               <input type="checkbox" class="d-none" id="check-user" name="check-user" value="username">
               <label for="selectOption" class="form-label">User Name</label>
               <select id="selectOption-user" class="form-select">
@@ -46,7 +46,7 @@
                 <option value="jasmine">jasmine</option>
               </select>
             </div>
-            <div class="col-3">
+            <div class="w-25-pro px-20px">
               <input type="checkbox" class="d-none" id="check-creationdate" name="check-creationdate" value="creationdate">
               <label class="form-label">Creation Date</label>
               <div class="row">
@@ -58,7 +58,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-3">
+            <div class="w-25-pro px-20px">
               <input type="checkbox" class="d-none" id="check-podate" name="check-podate" value="podate">
               <label class="form-label">PO Date</label>
               <div class="row">
@@ -70,8 +70,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-2">
-              <div class="w-100 d-flex items-end h-100 pb-1 flex-wrap gap-1">
+            <div class="w-30-pro px-20px">
+              <div class="w-100 d-flex items-end h-100 pb-1 flex-wrap justify-center gap-5">
                 <button class="btn btn-outline-dark waves-effect mr-0 btn-sm md-flex-1" type="button" id="filterButton">
                   <i class="fa fa-filter" style="font-size:15px"></i> Filter
                 </button>
@@ -86,11 +86,11 @@
               <thead>
                 <tr class="bg-light-gray">
                   {% comment %} <th style="width: 5%;"><input type="checkbox" id="masterCheckbox" name="checkbox" onchange="toggleCheckboxes(this)"></th> {% endcomment %}
-                  <th width="15%" onclick="sortTable(1)" class="sortable-column">Customer Name <span id="sortSymbol1" class="order-symbol">&#x02191;</span></th>
-                  <th width="15%" onclick="sortTable(2)" class="sortable-column">User Name <span id="sortSymbol2" class="order-symbol">&#x02191;</span></th>
-                  <th width="15%" onclick="sortTable(3)" class="sortable-column">Creation Date <span id="sortSymbol3" class="order-symbol">&#x02191;</span></th>
-                  <th width="15%" onclick="sortTable(4)" class="sortable-column" style="padding-left: 40px;">PO Date <span id="sortSymbol4" class="order-symbol">&#x02191;</span></th>
-                  <th width="15%"></th>
+                  <th width="10%" onclick="sortTable(1)" class="sortable-column">Customer Name <span id="sortSymbol1" class="order-symbol">&#x02191;</span></th>
+                  <th width="10%" onclick="sortTable(2)" class="sortable-column">User Name <span id="sortSymbol2" class="order-symbol">&#x02191;</span></th>
+                  <th width="25%" onclick="sortTable(3)" class="sortable-column">Creation Date <span id="sortSymbol3" class="order-symbol">&#x02191;</span></th>
+                  <th width="25%" onclick="sortTable(4)" class="sortable-column" style="padding-left: 40px;">PO Date <span id="sortSymbol4" class="order-symbol">&#x02191;</span></th>
+                  <th width="30%"></th>
                 </tr>
               </thead>
         
@@ -104,20 +104,20 @@
                   <td>{{ history.2 }}</td>
                   <td style="padding-left: 40px;">{{ history.3 }}</td>
                   <td class="text-center">
-                    <div class="w-100 d-flex gap-1">
-                      <button class="btn btn-outline-primary waves-effect mr-0">
-                        <i class="fas fa-download fs-20px"></i>
-                        IDownload
-                      </button>
-                      <button class="btn btn-outline-primary waves-effect mr-0">
-                        <i class="fas fa-download fs-20px"></i>
-                        ODownload
-                      </button>
+                    <div class="w-100 d-flex gap-1 flex-row-reverse">
                       <form method="post">
                         {% csrf_token %}
                         <a type="submit" class="btn btn-outline-primary border-0 waves-effect mr-0" href="{% url 'security:history_view' history.2 %}"
                           id="history_viewer"><i class="fas fa-eye fs-20px"></i>View</a>
                       </form>
+                      <button class="btn btn-outline-primary waves-effect mr-0">
+                        <i class="fas fa-download fs-20px"></i>
+                        ODownload
+                      </button>
+                      <button class="btn btn-outline-primary waves-effect mr-0">
+                        <i class="fas fa-download fs-20px"></i>
+                        IDownload
+                      </button>
                     </div>
                   </td>
         

@@ -16,7 +16,7 @@
                   id="step_progress_1"
                   class="progress-bar bg-success step-progress"
                   role="progressbar"
-                  style="width: 25%"
+                  style="width: 50%"
                   aria-valuenow="25"
                   aria-valuemin="0"
                   aria-valuemax="100"
@@ -207,7 +207,7 @@
                         <strong>Customer Name:</strong>
                         <span id="customer_name" class="text-info"></span>
                       </p>
-                      <p class="mb-0" id="customer_desc">Customer Name From PO</p>
+                      <p class="mb-0" id="customer_desc">Customer Name in Cin7</p>
                     </div>
                   </div>
                 </div>
@@ -221,7 +221,7 @@
                         <strong>Terms:</strong>
                         <span id="customer_term" class="text-info"></span>
                       </p>
-                      <p class="mb-0" id="customer_term_desc">Terms From PO</p>
+                      <p class="mb-0" id="customer_term_desc">Customer Terms in Cin7</p>
                     </div>
                   </div>
                 </div>
@@ -243,9 +243,9 @@
           <div class="row">
             <div class="col-md-9 col-sm-12">
               <div class="card h-content">
-                <div class="card-header border-b pb-2">
+                {% comment %} <div class="card-header border-b pb-2">
                   <h5 class="card-title my-0 customername">Customer Order Mapping</h5>
-                </div>
+                </div> {% endcomment %}
                 <div class="card-body pt-2">
                   <div id="view_details">
                   </div>
@@ -301,9 +301,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body overflow-y-scroll max-h-660px custom-scroll-box">
               <table id="modaltable" class="table"></table>
-              <p class="mt-3">These are first productions for our site and for this customer.
+              <p class="mt-3 fw-500 text-black">These are first productions for our site and for this customer.
                 Do you want to use them to auto-fill for further times?</p>
               <table id="newmodaltable" class="table"></table>
             </div>
@@ -311,7 +311,6 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-outline-dark waves-effect" id="NextButton">Next</button>
             </div>
-
         </div>
     </div>
   </div>
